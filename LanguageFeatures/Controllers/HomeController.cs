@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -90,6 +91,52 @@ namespace LanguageFeatures.Controllers
 			}
 
 			return View("Result", (object)String.Format("Total: {0}", total));
+		}
+
+		public ViewResult CreateAnonArray()
+		{
+			var oddsAndEnds = new[]
+			{
+				new {Name = "MVC", Category = "Pattern" },
+				new {Name = "Hat", Category = "Clothing" },
+				new {Name = "Apple", Category = "Frit" }
+			};
+
+			StringBuilder result = new StringBuilder();
+			foreach (var item in oddsAndEnds)
+			{
+				result.Append(item.Name).Append(" ");
+			}
+
+			return View("Result", (object)result.ToString());
+		}
+
+		public ViewResult FindProduct()
+		{
+			Product[] products =
+			{
+					new Product {Name = "Kayak", Category = "Watersports", Price = 275M },
+					new Product {Name = "Lifejacket", Category = "Watersports", Price = 48.95M},
+					new Product {Name = "Soccer ball", Category = "Soccer", Price = 19.50M },
+					new Product {Name = "Coner flag", Category = "Soccer", Price = 34.95M }
+			};
+
+			var FoundProducts = from match in products
+								orderby match.Price descending
+								select new { match.Name, match.Price };
+
+			int count = 0;
+			StringBuilder result = new StringBuilder();
+			foreach (var p in FoundProducts)
+			{
+				result.AppendFormat("Price: {0} ", p.Price);
+				if (++count == 3)
+				{
+					break;
+				}
+			}
+
+			return View("Result", (object)result.ToString());
 		}
     }
 }
