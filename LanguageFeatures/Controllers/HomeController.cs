@@ -65,7 +65,34 @@ namespace LanguageFeatures.Controllers
 			decimal cartTotal = cart.TotalPrices();
 
 			return View("Result", (object)string.Format("Total: {0:c}", cartTotal));
+		}
 
+		public ViewResult UseFilterExtensionMethon()
+		{
+			IEnumerable<Product> products = new ShoppingCart
+			{
+				Products = new List<Product>
+				{
+					new Product {Name = "Kayak", Category = "Watersports", Price = 275M },
+					new Product {Name = "Lifejacket", Category = "Watersports", Price = 48.95M},
+					new Product {Name = "Soccer ball", Category = "Soccer", Price = 19.50M },
+					new Product {Name = "Coner flag", Category = "Soccer", Price = 34.95M }
+				}
+			};
+
+			Func<Product, bool> categoryFileter = delegate (Product prod)
+			{
+				return prod.Category == "Soccer";
+			};
+
+			decimal total = 0;
+
+			foreach (Product prod in products.Filter(categoryFileter))
+			{
+				total += prod.Price;
+			}
+
+			return View("Result", (object)String.Format("Total: {0}", total));
 		}
     }
 }
