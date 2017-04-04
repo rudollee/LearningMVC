@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyInvites", "..\Lab\Part
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor", "Razor\Razor.csproj", "{58B43B8C-F613-4AA5-8A77-98A800578267}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EssentialTools", "EssentialTools\EssentialTools.csproj", "{6605F0AA-CBB9-4E5D-A053-60EE3FD045A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{58B43B8C-F613-4AA5-8A77-98A800578267}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58B43B8C-F613-4AA5-8A77-98A800578267}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58B43B8C-F613-4AA5-8A77-98A800578267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6605F0AA-CBB9-4E5D-A053-60EE3FD045A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6605F0AA-CBB9-4E5D-A053-60EE3FD045A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6605F0AA-CBB9-4E5D-A053-60EE3FD045A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6605F0AA-CBB9-4E5D-A053-60EE3FD045A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
