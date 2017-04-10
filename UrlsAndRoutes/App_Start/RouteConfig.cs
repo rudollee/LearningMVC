@@ -63,11 +63,18 @@ namespace UrlsAndRoutes
 			//	new { controller = "^H.*", action = "^Index|About", httpMethod = new HttpMethodConstraint("GET"), id = new RangeRouteConstraint(10, 20) },
 			//	new[] { "URLsAndROutes.Controllers" });
 
-			routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
-				new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-				new { controller = "^H.*", action = "^Index|About", httpMethod = new HttpMethodConstraint("GET"),
-					id = new CompoundRouteConstraint(new IRouteConstraint[] { new AlphaRouteConstraint(), new MinLengthRouteConstraint(6) }) },
-				new[] { "URLsAndROutes.Controllers" });
+			//routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
+			//	new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+			//	new { controller = "^H.*", action = "^Index|About", httpMethod = new HttpMethodConstraint("GET"),
+			//		id = new CompoundRouteConstraint(new IRouteConstraint[] { new AlphaRouteConstraint(), new MinLengthRouteConstraint(6) }) },
+			//	new[] { "URLsAndROutes.Controllers" });
+
+			routes.MapMvcAttributeRoutes();
+
+			routes.MapRoute("NewRoute", "App/Do{action}", new { controller = "Home" });
+
+			routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
+				new { controller = "Home", action = "Index", id = UrlParameter.Optional });
 		}
 	}
 }
