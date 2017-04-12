@@ -12,11 +12,25 @@
 <body>
 	<div>The controller is: @ViewBag.Controller</div>
 	<div>The action is: @ViewBag.Action</div>
-	<div>
-		@Html.ActionLink("This is an outgoing URL", "CustomVariable")
-	</div>
-	<div>
+	@*<div>
+		@Html.ActionLink("This is an outgoing URL", "CustomVariable", new { id = "Hello" })
+	</div>*@
+	@*<div>
 		@Html.ActionLink("This targets another controller", "Index", "Customer")
+	</div>*@
+	<div>
+		<!-- Add Attribute-->
+@*		@Html.ActionLink("This is an outgoing URL", "Index", "Home", null, new { id = "myAnchorID", @class = "myCSSClass" })*@
+
+		<!-- Regular Expression-->
+		@*@Html.ActionLink("This is an outgoing URL", "Index", "Home", "https", "myserver.mydomain.com", "myFragmentName",
+			new { id = "MyId" },
+			new { id = "myAnchorID", @class = "myCSSClass" })*@
+
+		<!-- Show URL without html-->
+		This is a URL: 
+		@*@Url.Action("Index", "Home", new { id = "MyId" })*@
+		@Html.ActionLink("Click me", "GetLegacyURL", new { legacyURL = "~/articls/Windows_3.1_Overview.html" })
 	</div>
 </body>
 </html>

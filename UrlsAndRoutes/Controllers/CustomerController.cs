@@ -17,10 +17,16 @@ namespace UrlsAndRoutes.Controllers
             return View("ActionName");
         }
 
-		[Route("Add/{user}/{id:int}")]
+		//[Route("Add/{user}/{id:int}")]
+		//public string Create(string user, int id)
+		//{
+		//	return string.Format("User: {0}, ID: {1}", user, id);
+		//}
+
+		[Route("Add/{user}/{id:int}", Name = "AddRoute")]
 		public string Create(string user, int id)
 		{
-			return string.Format("User: {0}, ID: {1}", user, id);
+			return string.Format("Create Method - User: {0}, ID: {1}", user, id);
 		}
 
 		[Route("Add/{user}/{password:alpha:length(6)}")]
