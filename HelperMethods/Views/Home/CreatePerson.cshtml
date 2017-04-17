@@ -3,37 +3,53 @@
 @{
     ViewBag.Title = "CreatePerson";
 	Layout = "/Views/Shared/_Layout.cshtml";
+	Html.EnableClientValidation(false);
 }
 
-<h2>CreatePerson</h2>
+<h2>CreatePerson @Html.LabelForModel() </h2>
 
 @*@{ Html.BeginForm();}*@
 @using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post,
-	new { @class = "personClass", data_formtype = "person" }))
+				new { @class = "personClass", data_formtype = "person" }))
 {
-
+	<div class="column">
+		@Html.EditorForModel()
+	</div>
+	<div class="column">
+		@Html.EditorFor(m => m.HomeAddress)
+	</div>
+	<!--
 	<div class="dateElem">
 		<label>PersonId</label>
 		@*<input name="personId" value="@Model.PersonId" />*@
 		@*@Html.TextBox("personId", @Model.PersonId)*@
-		@Html.TextBoxFor(m => m.PersonId)
+		@*@Html.TextBoxFor(m => m.PersonId)*@
+@*		@Html.Editor("PersonId")*@
 	</div>
 	<div class="dateElem">
 		<label>First Name</label>
 		@*<input name="FirstName" value="@Model.FirstName" />*@
 		@*@Html.TextBox("FirstName", @Model.FirstName)*@
-		@Html.TextBoxFor(m => m.FirstName)
+		@*@Html.TextBoxFor(m => m.FirstName)*@
+@*		@Html.Editor("FirstName")*@
 	</div>
 	<div class="dateElem">
 		<label>Last Name</label>
 		@*<input name="LastName" value="@Model.LastName" />*@
 		@*@Html.TextBox("LastName", @Model.LastName)*@
-		@Html.TextBoxFor(m => m.LastName)
+		@*@Html.TextBoxFor(m => m.LastName)*@
+	@*	@Html.EditorFor(m => m.LastName)*@
 	</div>
 	<div class="dateElem">
 		<label>Role</label>
-		@Html.DropDownListFor(m => m.Role, new SelectList(Enum.GetNames(typeof(HelperMethods.Models.Role))))
+@*		@Html.DropDownListFor(m => m.Role, new SelectList(Enum.GetNames(typeof(HelperMethods.Models.Role))))*@
+		@*@Html.EditorFor(m => m.Role)*@
 	</div>
+	<div class="dateElem">
+		<label>Birth Date</label>
+		@*@Html.EditorFor(m => m.BirthDate)*@
+	</div>
+		-->
 	<input type="submit" value="Submit" />
 
 }
