@@ -1,0 +1,49 @@
+﻿@model string
+@using HelperMethods.Infrastructure
+@{
+    Layout = null;
+}
+
+@*@helper ListArrayItems(string[] items)
+{
+	<ul>
+		@foreach (string str in items)
+		{
+		<li>@str</li>
+		}
+	</ul>
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+		Here are the fruits: @Html.ListArrayItems((string[])ViewBag.Fruits)  @*@ListArrayItems(ViewBag.Fruits)*@
+		@*@foreach (string str in (string[])ViewBag.Fruits)
+		{
+			<b>@str</b>
+		}*@
+    </div>
+	<div>
+		Here are the cities: @Html.ListArrayItems((string[])ViewBag.Cities) @*@ListArrayItems(ViewBag.Cities)*@
+		@*@foreach (string str in (string[])ViewBag.Cities)
+		{
+			<b>@str</b>
+		}*@
+	</div>
+	<div style="border: thin solid black; padding: 10px;">
+		Here is the message:
+		<p>@Model</p>
+	</div>
+
+	<p>This is the content from the helper method:</p>
+	<div style="border: thin solid black; padding: 10px;">
+		@Html.DisplayMessage(Model)
+	</div>
+</body>
+</html>
